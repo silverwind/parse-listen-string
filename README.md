@@ -20,4 +20,16 @@ parseListenString("https://[::1]:443")
 //=> {host: "::1", port: 443, proto: "https"}
 ```
 
+## API
+### parseListenString(listenString)
+
+* `listenString` *String* or *Number*: A listen string to parse
+
+Returns a object or `null` if string can not be parsed. Object properties:
+
+- `proto` *String*. Protocol, either `http` or `https`
+- `host` *String*: Listen host in form of an IP address
+- `port` *Number*: Listen port
+- `path` *String*: Unix socket path, this is mutual exclusive with `host` and `port`
+
 © [silverwind](https://github.com/silverwind), distributed under BSD licence
