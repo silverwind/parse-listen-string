@@ -11,10 +11,13 @@ npm i parse-listen-string
 
 ## Usage
 ```js
-import {parseListenString} from "./index.js";
+import {parseListenString} from "parse-listen-string";
 
-parseListenString("0.0.0.0:80") //=> {host: "0.0.0.0", port: 80, proto: "http"}
-parseListenString("https://[::1]:443") //=> {host: "::1", port: 443, proto: "https"}
+parseListenString("0.0.0.0:80")
+//=> {host: "0.0.0.0", port: 80, proto: "http"}
+
+parseListenString("https://[::1]:443")
+//=> {host: "::1", port: 443, proto: "https"}
 ```
 
 © [silverwind](https://github.com/silverwind), distributed under BSD licence
