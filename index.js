@@ -15,7 +15,7 @@ export function parseListenString(str) {
   } else if (str.startsWith("http+unix:")) {
     return {path: str.substring("http+unix:".length), proto: "http"};
   } else if (str.startsWith("https+unix:")) {
-    return {path: str.substring("https+unix:".length), proto: "http"};
+    return {path: str.substring("https+unix:".length), proto: "https"};
   }
 
   let proto = "http";

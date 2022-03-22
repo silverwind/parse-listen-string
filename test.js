@@ -2,6 +2,8 @@ import {parseListenString} from "./index.js";
 
 test("parseListenString", () => {
   expect(parseListenString("unix:/tmp/service.socket")).toEqual({path: "/tmp/service.socket", proto: "http"});
+  expect(parseListenString("http+unix:/tmp/service.socket")).toEqual({path: "/tmp/service.socket", proto: "http"});
+  expect(parseListenString("https+unix:/tmp/service.socket")).toEqual({path: "/tmp/service.socket", proto: "https"});
   expect(parseListenString(80)).toEqual({host: "::", port: 80, proto: "http"});
   expect(parseListenString("80")).toEqual({host: "::", port: 80, proto: "http"});
   expect(parseListenString("::1")).toEqual({host: "::1", port: 80, proto: "http"});
