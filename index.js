@@ -16,6 +16,10 @@ export function parseListenString(str) {
     return {path: str.substring("http+unix:".length), proto: "http"};
   } else if (str.startsWith("https+unix:")) {
     return {path: str.substring("https+unix:".length), proto: "https"};
+  } else if (str.startsWith("http://unix:")) {
+    return {path: str.substring("http://unix:".length), proto: "http"};
+  } else if (str.startsWith("https://unix:")) {
+    return {path: str.substring("https://unix:".length), proto: "https"};
   }
 
   let proto = "http";
@@ -41,12 +45,12 @@ export function parseListenString(str) {
   // host must be an ip address at this point
   if (!isIP(host)) return null;
 
+  // <ip>:<port>
+  let port = proto === "https" ? 443 : 80;
   if (str !== host) {
-    const port = Number(str.substring(str.lastIndexOf(":") + 1));
-    if (port >= 0) {
-      return {host, port, proto};
-    }
+    const portNum = Number(str.substring(str.lastIndexOf(":") + 1));
+    if (typeof portNum === "number" && portNum >= 0) port = portNum;
   }
 
-  return {host, port: proto === "https" ? 443 : 80, proto};
+  return {host, port, proto};
 }
