@@ -6,7 +6,7 @@
   "repository": "silverwind/parse-listen-string",
   "license": "BSD-2-Clause",
   "type": "module",
-  "main":"index.js",
+  "main": "index.js",
   "engines": {
     "node": ">= 12.20.0"
   },
@@ -14,9 +14,6 @@
     "index.js",
     "package.json"
   ],
-  "dependencies": {
-    "is-ip": "4.0.0"
-  },
   "devDependencies": {
     "eslint": "8.11.0",
     "eslint-config-silverwind": "48.2.0",

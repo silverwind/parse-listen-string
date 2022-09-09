@@ -1,4 +1,4 @@
-import {isIP} from "is-ip";
+import {isIP} from "net";
 
 export function parseListenString(str) {
   if (!str) {
