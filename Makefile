@@ -28,14 +28,14 @@ update: node_modules
 .PHONY: patch
 patch: node_modules test
 	npx versions patch
-	@$(MAKE) --no-print-directory publish
+	@$(MAKE) --no-print-directory publish package.json package-lock.json
 
 .PHONY: minor
 minor: node_modules test
 	npx versions  minor
-	@$(MAKE) --no-print-directory publish
+	@$(MAKE) --no-print-directory publish package.json package-lock.json
 
 .PHONY: major
 major: node_modules test
 	npx versions  major
-	@$(MAKE) --no-print-directory publish
+	@$(MAKE) --no-print-directory publish package.json package-lock.json
