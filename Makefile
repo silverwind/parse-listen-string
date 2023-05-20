@@ -10,7 +10,7 @@ lint: node_modules
 	npx eslint --color .
 
 .PHONY: test
-test: node_modules lint
+test: lint node_modules
 	npx vitest
 
 .PHONY: publish
@@ -25,17 +25,17 @@ update: node_modules
 	npm install
 	@touch node_modules
 
-.PHONY: patch
-patch: node_modules test
-	npx versions patch
-	@$(MAKE) --no-print-directory publish package.json package-lock.json
+.PHONY: path
+patch: node_modules lint test
+	npx versions patch package.json package-lock.json
+	@$(MAKE) --no-print-directory publish
 
 .PHONY: minor
-minor: node_modules test
-	npx versions  minor
-	@$(MAKE) --no-print-directory publish package.json package-lock.json
+minor: node_modules lint test
+	npx versions minor package.json package-lock.json
+	@$(MAKE) --no-print-directory publish
 
 .PHONY: major
-major: node_modules test
-	npx versions  major
-	@$(MAKE) --no-print-directory publish package.json package-lock.json
+major: node_modules lint test
+	npx versions major package.json package-lock.json
+	@$(MAKE) --no-print-directory publish
