@@ -1,6 +1,15 @@
 import {isIP} from "node:net";
 
-export function parseListenString(str) {
+type ParseListenStringResult = {
+  host: string,
+  port: number,
+  proto: string,
+} | {
+  path: string,
+  proto: string,
+} | null;
+
+export function parseListenString(str: string | number): ParseListenStringResult {
   if (!str) {
     return null;
   }

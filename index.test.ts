@@ -1,4 +1,4 @@
-import {parseListenString} from "./index.js";
+import {parseListenString} from "./index.ts";
 
 test("parseListenString", () => {
   expect(parseListenString("unix:/tmp/service.socket")).toEqual({path: "/tmp/service.socket", proto: "http"});
@@ -33,7 +33,6 @@ test("parseListenString", () => {
   expect(parseListenString("https://1.2.3.4")).toEqual({host: "1.2.3.4", port: 443, proto: "https"});
   expect(parseListenString("https://1.2.3.4:443")).toEqual({host: "1.2.3.4", port: 443, proto: "https"});
 
-  expect(parseListenString()).toEqual(null);
   expect(parseListenString("")).toEqual(null);
   expect(parseListenString("0.0.0.0::443")).toEqual(null);
   expect(parseListenString("256.0.0.0:443")).toEqual(null);
@@ -53,7 +52,6 @@ test("parseListenString", () => {
   expect(parseListenString("0.0.0.0:443")).toEqual({host: "0.0.0.0", port: 443, proto: "http"});
   expect(parseListenString("1.2.3.4:443")).toEqual({host: "1.2.3.4", port: 443, proto: "http"});
 
-  expect(parseListenString()).toEqual(null);
   expect(parseListenString("")).toEqual(null);
   expect(parseListenString("0.0.0.0::443")).toEqual(null);
   expect(parseListenString("256.0.0.0:443")).toEqual(null);
