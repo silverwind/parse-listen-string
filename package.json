@@ -6,14 +6,16 @@
   "repository": "silverwind/parse-listen-string",
   "license": "BSD-2-Clause",
   "type": "module",
-  "exports": "./index.js",
+  "sideEffects": false,
+  "main": "./dist/index.js",
+  "exports": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
   "engines": {
     "node": ">= 16"
   },
-  "files": [
-    "index.js",
-    "package.json"
-  ],
   "devDependencies": {
     "@types/node": "20.12.12",
     "eslint": "8.57.0",
