@@ -1,6 +1,6 @@
 import {isIP} from "node:net";
 
-export type ParseListenStringResult = { // eslint-disable-line i/no-unused-modules
+export type ParseListenStringResult = { // eslint-disable-line import/no-unused-modules
   host?: string,
   port?: number,
   proto?: string,
