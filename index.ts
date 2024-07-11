@@ -1,15 +1,13 @@
 import {isIP} from "node:net";
 
-type ParseListenStringResult = {
-  host: string,
-  port: number,
-  proto: string,
-} | {
-  path: string,
-  proto: string,
-} | null;
+export type ParseListenStringResult = { // eslint-disable-line i/no-unused-modules
+  host?: string,
+  port?: number,
+  proto?: string,
+  path?: string,
+};
 
-export function parseListenString(str: string | number): ParseListenStringResult {
+export function parseListenString(str: string | number): ParseListenStringResult | null {
   if (!str) {
     return null;
   }
