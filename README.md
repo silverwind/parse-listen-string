@@ -1,5 +1,5 @@
 # parse-listen-string
-[![](https://img.shields.io/npm/v/parse-listen-string.svg?style=flat)](https://www.npmjs.org/package/parse-listen-string) [![](https://img.shields.io/npm/dm/parse-listen-string.svg)](https://www.npmjs.org/package/parse-listen-string)
+[![](https://img.shields.io/npm/v/parse-listen-string.svg?style=flat)](https://www.npmjs.org/package/parse-listen-string) [![](https://img.shields.io/npm/dm/parse-listen-string.svg)](https://www.npmjs.org/package/parse-listen-string) [![](https://packagephobia.com/badge?p=parse-listen-string)](https://packagephobia.com/result?p=parse-listen-string)
 
 Node.js module to parse a listen string like `0.0.0.0:443`.
 
