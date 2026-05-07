@@ -27,8 +27,8 @@ importers:
         specifier: 0.21.9
         version: 0.21.9(@typescript/native-preview@7.0.0-dev.20260420.1)(typescript@6.0.3)
       tsdown-config-silverwind:
-        specifier: 2.1.0
-        version: 2.1.0(tsdown@0.21.9(@typescript/native-preview@7.0.0-dev.20260420.1)(typescript@6.0.3))
+        specifier: 3.0.0
+        version: 3.0.0(tsdown@0.21.9(@typescript/native-preview@7.0.0-dev.20260420.1)(typescript@6.0.3))
       typescript:
         specifier: 6.0.3
         version: 6.0.3
@@ -39,14 +39,14 @@ importers:
         specifier: 17.15.5
         version: 17.15.5
       updates-config-silverwind:
-        specifier: 2.1.0
-        version: 2.1.0(prettier@3.8.3)
+        specifier: 3.0.0
+        version: 3.0.0(prettier@3.8.3)
       versions:
         specifier: 15.0.0
         version: 15.0.0
       vite-config-silverwind:
-        specifier: 7.0.3
-        version: 7.0.3(vite@8.0.9(@types/node@25.6.0))
+        specifier: 8.0.0
+        version: 8.0.0(vite@8.0.9(@types/node@25.6.0))
       vitest:
         specifier: 4.1.4
         version: 4.1.4(@types/node@25.6.0)(@vitest/coverage-v8@4.1.4)(vite@8.0.9(@types/node@25.6.0))
@@ -1147,9 +1147,9 @@ packages:
     peerDependencies:
       typescript: '>=4.8.4'
 
-  tsdown-config-silverwind@2.1.0:
-    resolution: {integrity: sha512-zpTmDdwn7enVIuiGygsYBtXu5ZxgKvQm7k6Le25f6FogIIZ0FFa+CfKI7G0F6SgFFRdWYuRPHXDSM9r5N+xHzQ==}
-    engines: {node: '>=20'}
+  tsdown-config-silverwind@3.0.0:
+    resolution: {integrity: sha512-Ok/jdwO4KQcYmhoNEmxRHlpNZ2V+oHdDlFiOp3PwoDpzszGlhtqHC/GxeznorDkxweA9VnNLGbNA9BJX/1QmxQ==}
+    engines: {node: '>=22'}
     peerDependencies:
       tsdown: '*'
 
@@ -1215,9 +1215,9 @@ packages:
       synckit:
         optional: true
 
-  updates-config-silverwind@2.1.0:
-    resolution: {integrity: sha512-PvtBYRAGWQYCFSnc/FzfGwkV8INcCbRoCPiEz79MgcRq574N3eEES7T11AdM0SxmxwDeIbQWdvKVo1JJxCJolA==}
-    engines: {node: '>=20'}
+  updates-config-silverwind@3.0.0:
+    resolution: {integrity: sha512-mCNRYKiJAemcCoLVh8wEfXbWb8lZDI1pcMzhx75A13CCLQ8snwJrUcD9ZrvBoc9IGurkuNZ7iCyNaJTDG8Hdvg==}
+    engines: {node: '>=22'}
     peerDependencies:
       prettier: '*'
 
@@ -1234,17 +1234,17 @@ packages:
     engines: {node: '>=22'}
     hasBin: true
 
-  vite-config-silverwind@7.0.3:
-    resolution: {integrity: sha512-5tZ6U89tvlE8fKH/ZMTAyWam/r1kayNIkU1pljUdvYCpNW5OszuRHsKzhJl0ZRpHuoCZLgqtV/3NZagdnnjuAQ==}
-    engines: {node: '>=18'}
+  vite-config-silverwind@8.0.0:
+    resolution: {integrity: sha512-fcpDzIn6x2AK6lkgF65mtXuhWqcAhAuL41xCv+0Axmi9DtYKnP/OTN7Yj/5QUWJar3ut6m/AKxiuQaSOCxhmPw==}
+    engines: {node: '>=22'}
     peerDependencies:
       vite: '>=8'
 
   vite-dts-plugin@1.2.0:
     resolution: {integrity: sha512-VKIhs2aBH1moUPlHlZijVqgXO4SUHYib3Xsb6dxWAtD5j3egJ5HlgSH3TkK7ruGuSk7nZkWDblmANJt5bYmj6A==}
 
-  vite-string-plugin@2.0.2:
-    resolution: {integrity: sha512-pHU9lZuUoMSYyZixdn2XBYko9IAhk3dr41CG6VsXrjB+wN2th06SZsO9mJm6+2NhKBJKNfRERaRej8TBcoq9tQ==}
+  vite-string-plugin@2.0.4:
+    resolution: {integrity: sha512-uahQl15I6hsHGzbjCmllVoKZBmZavXAp8GXBmq5omNQM52wgBv7e//98A6cONbq0Of6F/5uJ30OjF5ggNY6reQ==}
     peerDependencies:
       vite: '*'
 
@@ -2319,7 +2319,7 @@ snapshots:
     dependencies:
       typescript: 6.0.3
 
-  tsdown-config-silverwind@2.1.0(tsdown@0.21.9(@typescript/native-preview@7.0.0-dev.20260420.1)(typescript@6.0.3)):
+  tsdown-config-silverwind@3.0.0(tsdown@0.21.9(@typescript/native-preview@7.0.0-dev.20260420.1)(typescript@6.0.3)):
     dependencies:
       tsdown: 0.21.9(@typescript/native-preview@7.0.0-dev.20260420.1)(typescript@6.0.3)
 
@@ -2396,7 +2396,7 @@ snapshots:
     dependencies:
       rolldown: 1.0.0-rc.16
 
-  updates-config-silverwind@2.1.0(prettier@3.8.3):
+  updates-config-silverwind@3.0.0(prettier@3.8.3):
     dependencies:
       prettier: 3.8.3
 
@@ -2408,15 +2408,15 @@ snapshots:
 
   versions@15.0.0: {}
 
-  vite-config-silverwind@7.0.3(vite@8.0.9(@types/node@25.6.0)):
+  vite-config-silverwind@8.0.0(vite@8.0.9(@types/node@25.6.0)):
     dependencies:
       vite: 8.0.9(@types/node@25.6.0)
       vite-dts-plugin: 1.2.0
-      vite-string-plugin: 2.0.2(vite@8.0.9(@types/node@25.6.0))
+      vite-string-plugin: 2.0.4(vite@8.0.9(@types/node@25.6.0))
 
   vite-dts-plugin@1.2.0: {}
 
-  vite-string-plugin@2.0.2(vite@8.0.9(@types/node@25.6.0)):
+  vite-string-plugin@2.0.4(vite@8.0.9(@types/node@25.6.0)):
     dependencies:
       vite: 8.0.9(@types/node@25.6.0)
 

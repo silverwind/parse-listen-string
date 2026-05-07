@@ -15,7 +15,7 @@
   ],
   "packageManager": "pnpm@10.33.0",
   "engines": {
-    "node": ">= 16"
+    "node": ">=22"
   },
   "devDependencies": {
     "@types/node": "25.6.0",
@@ -24,13 +24,13 @@
     "eslint-config-silverwind": "131.0.5",
     "jest-extended": "7.0.0",
     "tsdown": "0.21.9",
-    "tsdown-config-silverwind": "2.1.0",
+    "tsdown-config-silverwind": "3.0.0",
     "typescript": "6.0.3",
     "typescript-config-silverwind": "18.0.0",
     "updates": "17.15.5",
-    "updates-config-silverwind": "2.1.0",
+    "updates-config-silverwind": "3.0.0",
     "versions": "15.0.0",
-    "vite-config-silverwind": "7.0.3",
+    "vite-config-silverwind": "8.0.0",
     "vitest": "4.1.4",
     "vitest-config-silverwind": "11.3.3"
   }
