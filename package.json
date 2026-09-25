@@ -1,6 +1,6 @@
 {
   "name": "parse-listen-string",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "Parse a HTTP server listen string",
   "author": "silverwind",
   "repository": {
