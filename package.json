@@ -3,7 +3,10 @@
   "version": "3.0.0",
   "description": "Parse a HTTP server listen string",
   "author": "silverwind",
-  "repository": "silverwind/parse-listen-string",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/silverwind/parse-listen-string.git"
+  },
   "license": "BSD-2-Clause",
   "type": "module",
   "sideEffects": false,
