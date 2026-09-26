@@ -3,13 +3,12 @@
 
 Node.js module to parse a listen string like `0.0.0.0:443`.
 
-## Install
+## Usage
 
-```bash
-npm i parse-listen-string
+```sh
+pnpm add parse-listen-string
 ```
 
-## Usage
 ```js
 import {parseListenString} from "parse-listen-string";
 
@@ -23,13 +22,13 @@ parseListenString("https://[::1]:443")
 ## API
 ### parseListenString(listenString)
 
-* `listenString` *String* or *Number*: A listen string to parse
+- `listenString` *String* or *Number*: A listen string to parse
 
-Returns a object or `null` if string can not be parsed. Object properties:
+Returns an object or `null` if string can not be parsed. Object properties:
 
 - `proto` *String*. Protocol, either `http` or `https`
 - `host` *String*: Listen host in form of an IP address
 - `port` *Number*: Listen port
-- `path` *String*: Unix socket path, this is mutual exclusive with `host` and `port`
+- `path` *String*: Unix socket path, this is mutually exclusive with `host` and `port`
 
 © [silverwind](https://github.com/silverwind), distributed under BSD licence
