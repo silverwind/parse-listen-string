@@ -202,9 +202,6 @@ importers:
       versions:
         specifier: 15.5.1
         version: 15.5.1
-      vite-config-silverwind:
-        specifier: 8.0.6
-        version: 8.0.6(vite@8.3.1(@types/node@26.6.3))
       vitest:
         specifier: 5.0.2
         version: 5.0.2(@types/node@26.6.3)(@vitest/coverage-v8@5.0.2)(vite@8.3.1(@types/node@26.6.3))
@@ -1504,20 +1501,6 @@ packages:
     engines: {node: '>=22'}
     hasBin: true
 
-  vite-config-silverwind@8.0.6:
-    resolution: {integrity: sha512-986EP95OE+5WISaUsE0INIHHInvPVZODWnEZdO5LWHchoAlZnCgcCnL+iebEaXEiWAyL9+Ky+C6FuhkvAKOhZg==}
-    engines: {node: '>=22'}
-    peerDependencies:
-      vite: '>=8'
-
-  vite-dts-plugin@1.2.0:
-    resolution: {integrity: sha512-VKIhs2aBH1moUPlHlZijVqgXO4SUHYib3Xsb6dxWAtD5j3egJ5HlgSH3TkK7ruGuSk7nZkWDblmANJt5bYmj6A==}
-
-  vite-string-plugin@2.0.6:
-    resolution: {integrity: sha512-fxc+kA+f4sHMZGLjCxlKt5echaiIfpaMf1xSTK/sgRmZ0XYgkO8DoC6U/4nO3l/Isn/PeVUiVcCBiqzGhBbofQ==}
-    peerDependencies:
-      vite: '*'
-
   vite@8.3.1:
     resolution: {integrity: sha512-/bvH9E9tmCXRGp2uXY3WbOldqpTwFkbha/8ANaEQ6VkxhH60KyqLwgZq6lG2y+4uT55x9+9eUHMpQ7uGnOCKjA==}
     engines: {node: ^20.19.0 || >=22.12.0}
@@ -2701,18 +2684,6 @@ snapshots:
   verkit@0.4.1: {}
 
   versions@15.5.1: {}
-
-  vite-config-silverwind@8.0.6(vite@8.3.1(@types/node@26.6.3)):
-    dependencies:
-      vite: 8.3.1(@types/node@26.6.3)
-      vite-dts-plugin: 1.2.0
-      vite-string-plugin: 2.0.6(vite@8.3.1(@types/node@26.6.3))
-
-  vite-dts-plugin@1.2.0: {}
-
-  vite-string-plugin@2.0.6(vite@8.3.1(@types/node@26.6.3)):
-    dependencies:
-      vite: 8.3.1(@types/node@26.6.3)
 
   vite@8.3.1(@types/node@26.6.3):
     dependencies:
