@@ -34,6 +34,7 @@ test("parseListenString", () => {
   expect(parseListenString("256.0.0.0:443")).toEqual(null);
   expect(parseListenString(":::1:443")).toEqual(null);
   expect(parseListenString("::10000:443")).toEqual(null);
+  expect(() => parseListenString(true as unknown as string)).toThrow(TypeError);
 
   expect(parseListenString("http://unix:/tmp/service.socket")).toEqual({path: "/tmp/service.socket", proto: "http"});
   expect(parseListenString(443)).toEqual({host: "::", port: 443, proto: "http"});
