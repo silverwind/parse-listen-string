@@ -1,47 +1,24 @@
 import {parseListenString} from "./index.ts";
 
 test("parseListenString", () => {
-  expect(parseListenString("unix:/tmp/service.socket")).toEqual({path: "/tmp/service.socket", proto: "http"});
-  expect(parseListenString("http+unix:/tmp/service.socket")).toEqual({path: "/tmp/service.socket", proto: "http"});
-  expect(parseListenString("https+unix:/tmp/service.socket")).toEqual({path: "/tmp/service.socket", proto: "https"});
-  expect(parseListenString(80)).toEqual({host: "::", port: 80, proto: "http"});
-  expect(parseListenString("80")).toEqual({host: "::", port: 80, proto: "http"});
-  expect(parseListenString("::1")).toEqual({host: "::1", port: 80, proto: "http"});
-  expect(parseListenString("[::1]")).toEqual({host: "::1", port: 80, proto: "http"});
-  expect(parseListenString("[::]:80")).toEqual({host: "::", port: 80, proto: "http"});
-  expect(parseListenString("[::1]:80")).toEqual({host: "::1", port: 80, proto: "http"});
-  expect(parseListenString("0.0.0.0:80")).toEqual({host: "0.0.0.0", port: 80, proto: "http"});
-  expect(parseListenString("1.2.3.4:80")).toEqual({host: "1.2.3.4", port: 80, proto: "http"});
-
-  expect(parseListenString("http://0.0.0.0")).toEqual({host: "0.0.0.0", port: 80, proto: "http"});
-  expect(parseListenString("http://0.0.0.0:80")).toEqual({host: "0.0.0.0", port: 80, proto: "http"});
-  expect(parseListenString("http://[::]")).toEqual({host: "::", port: 80, proto: "http"});
-  expect(parseListenString("http://[::]:80")).toEqual({host: "::", port: 80, proto: "http"});
-  expect(parseListenString("http://[::1]:80")).toEqual({host: "::1", port: 80, proto: "http"});
-  expect(parseListenString("http://1.2.3.4")).toEqual({host: "1.2.3.4", port: 80, proto: "http"});
-  expect(parseListenString("http://1.2.3.4:80")).toEqual({host: "1.2.3.4", port: 80, proto: "http"});
-
-  expect(parseListenString("https://0.0.0.0")).toEqual({host: "0.0.0.0", port: 443, proto: "https"});
-  expect(parseListenString("https://0.0.0.0:443")).toEqual({host: "0.0.0.0", port: 443, proto: "https"});
-  expect(parseListenString("https://[::]")).toEqual({host: "::", port: 443, proto: "https"});
-  expect(parseListenString("https://[::]:443")).toEqual({host: "::", port: 443, proto: "https"});
-  expect(parseListenString("https://[::1]:443")).toEqual({host: "::1", port: 443, proto: "https"});
-  expect(parseListenString("https://1.2.3.4")).toEqual({host: "1.2.3.4", port: 443, proto: "https"});
-  expect(parseListenString("https://1.2.3.4:443")).toEqual({host: "1.2.3.4", port: 443, proto: "https"});
-
-  expect(parseListenString("")).toEqual(null);
-  expect(parseListenString("0.0.0.0::443")).toEqual(null);
-  expect(parseListenString("256.0.0.0:443")).toEqual(null);
-  expect(parseListenString(":::1:443")).toEqual(null);
-  expect(parseListenString("::10000:443")).toEqual(null);
+  for (const [expected, inputs] of [
+    [{path: "/tmp/service.socket", proto: "http"}, ["unix:/tmp/service.socket", "http+unix:/tmp/service.socket", "http://unix:/tmp/service.socket"]],
+    [{path: "/tmp/service.socket", proto: "https"}, ["https+unix:/tmp/service.socket"]],
+    [{host: "::", port: 80, proto: "http"}, [80, "80", "[::]:80", "http://[::]", "http://[::]:80"]],
+    [{host: "::1", port: 80, proto: "http"}, ["::1", "[::1]", "[::1]:80", "http://[::1]:80"]],
+    [{host: "0.0.0.0", port: 80, proto: "http"}, ["0.0.0.0:80", "http://0.0.0.0", "http://0.0.0.0:80"]],
+    [{host: "1.2.3.4", port: 80, proto: "http"}, ["1.2.3.4:80", "http://1.2.3.4", "http://1.2.3.4:80"]],
+    [{host: "::", port: 443, proto: "http"}, [443, "443", ":::443", "[::]:443"]],
+    [{host: "::1", port: 443, proto: "http"}, ["[::1]:443"]],
+    [{host: "0.0.0.0", port: 443, proto: "http"}, ["0.0.0.0:443"]],
+    [{host: "1.2.3.4", port: 443, proto: "http"}, ["1.2.3.4:443"]],
+    [{host: "::", port: 443, proto: "https"}, ["https://[::]", "https://[::]:443"]],
+    [{host: "::1", port: 443, proto: "https"}, ["https://[::1]:443"]],
+    [{host: "0.0.0.0", port: 443, proto: "https"}, ["https://0.0.0.0", "https://0.0.0.0:443"]],
+    [{host: "1.2.3.4", port: 443, proto: "https"}, ["https://1.2.3.4", "https://1.2.3.4:443"]],
+    [null, ["", "0.0.0.0::443", "256.0.0.0:443", ":::1:443", "::10000:443"]],
+  ] as const) {
+    for (const input of inputs) expect(parseListenString(input)).toEqual(expected);
+  }
   expect(() => parseListenString(true as unknown as string)).toThrow(TypeError);
-
-  expect(parseListenString("http://unix:/tmp/service.socket")).toEqual({path: "/tmp/service.socket", proto: "http"});
-  expect(parseListenString(443)).toEqual({host: "::", port: 443, proto: "http"});
-  expect(parseListenString("443")).toEqual({host: "::", port: 443, proto: "http"});
-  expect(parseListenString(":::443")).toEqual({host: "::", port: 443, proto: "http"});
-  expect(parseListenString("[::]:443")).toEqual({host: "::", port: 443, proto: "http"});
-  expect(parseListenString("[::1]:443")).toEqual({host: "::1", port: 443, proto: "http"});
-  expect(parseListenString("0.0.0.0:443")).toEqual({host: "0.0.0.0", port: 443, proto: "http"});
-  expect(parseListenString("1.2.3.4:443")).toEqual({host: "1.2.3.4", port: 443, proto: "http"});
 });
