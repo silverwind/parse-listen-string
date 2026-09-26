@@ -26,7 +26,7 @@ parseListenString("https://[::1]:443")
 
 Returns an object or `null` if string can not be parsed. Object properties:
 
-- `proto` *String*. Protocol, either `http` or `https`
+- `proto` *String*: Protocol, either `http` or `https`
 - `host` *String*: Listen host in form of an IP address
 - `port` *Number*: Listen port
 - `path` *String*: Unix socket path, this is mutually exclusive with `host` and `port`
