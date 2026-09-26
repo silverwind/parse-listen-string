@@ -12,7 +12,9 @@ export function parseListenString(str: string | number): ParseListenStringResult
     return null;
   }
 
-  str = String(str);
+  if (typeof str === "number") {
+    str = String(str);
+  }
 
   if (str.startsWith("unix:")) {
     return {path: str.substring("unix:".length), proto: "http"};
